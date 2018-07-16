@@ -1,3 +1,9 @@
+# the problem in which n number of people are standing side by side each other in circle
+# the the sword is in first no. of people having 
+# which will kill people next to him n give sword to third people standing in the circle
+# the third people will kill people standing next to him n give sword to next of next people
+# n this process carry on util there will be one people in the circle
+# the input will be number of people n output will be the last number of  people do alive!
 n=100
 
 old=[i+1 for i in range(0,n)]
