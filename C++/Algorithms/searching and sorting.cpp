@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cmath>
 
 using namespace std;
 
@@ -32,6 +33,7 @@ class Sorting:public Array
     void insertion();
     void selection();
     void counting();
+    void radix();
 };
 
 void Array::get_array()
@@ -184,6 +186,41 @@ void Sorting::counting()
     }
 }
 
+void Sorting::radix()
+{
+    int maxi=find_max(a);
+
+    int n=0;
+    while(maxi!=0)
+    {
+        maxi/=10;
+        n+=1;
+    }
+
+    int cnt=0;
+    int new_a[length];
+    for(int k=1;k<n+1;k++)
+    {
+        cnt=0;
+        for(int i=0;i<10;i++)
+        {
+
+            for(int j=0;j<length;j++)
+            {
+                int temp=a[j]%int(pow(double(10),double(k)));
+                temp/=pow(10,(k-1));
+                if (temp==i)
+                    new_a[cnt++]=a[j];
+            }
+        }
+        for(int l=0;l<length;l++)
+        {
+            a[l]=new_a[l];
+        }
+    }
+}
+
+
 int find_max(int a[])
 {
     int maxi=0;
@@ -228,7 +265,7 @@ int main()
 */
     Sorting s2;
     s2.get_array();
-    s2.counting();
+    s2.radix();
     s2.print_array();
 
     return 0;
