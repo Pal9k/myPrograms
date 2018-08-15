@@ -1,0 +1,4 @@
+	START	300
+	MOVER	
+A	DS	10
+B	DC	1
